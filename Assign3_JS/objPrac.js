@@ -13,7 +13,7 @@ function sumAllSalaries(obj){
     return tol
 }
 
-//console.log(sumAllSalaries(salaries))
+console.log(sumAllSalaries(salaries))
 
 
 // Problem 2
@@ -32,8 +32,8 @@ function multiplyNumeric(obj){
     }
 }
 
-// multiplyNumeric(menu)
-// console.log(menu)
+multiplyNumeric(menu)
+console.log(menu)
 
 
 
@@ -54,10 +54,10 @@ function checkEmailId(strWords){
     return false;
 
 }
-// console.log(checkEmailId("geg@.gew"), "F")
-// console.log(checkEmailId("geg@zzz.gew"), "T")
-// console.log(checkEmailId("geg@gew"), "F")
-// console.log(checkEmailId("geg.gew"), "F")
+console.log(checkEmailId("geg@.gew"), "F")
+console.log(checkEmailId("geg@zzz.gew"), "T")
+console.log(checkEmailId("geg@gew"), "F")
+console.log(checkEmailId("geg.gew"), "F")
 
 
 function checkEmailIdUsingRegex(str) {
@@ -69,9 +69,79 @@ function checkEmailIdUsingRegex(str) {
   }
   
   // Test cases
-  console.log(checkEmailIdUsingRegex("example@gmail.com")); // Output: true
-  console.log(checkEmailIdUsingRegex("user123@yahoo.co.uk")); // Output: true
-  console.log(checkEmailIdUsingRegex("invalidemail@.com")); // Output: false
-  console.log(checkEmailIdUsingRegex("anotherinvalidemail.com")); // Output: false
-  console.log(checkEmailIdUsingRegex("email@domain")); // Output: false
+//   console.log(checkEmailIdUsingRegex("example@gmail.com")); // Output: true
+//   console.log(checkEmailIdUsingRegex("user123@yahoo.co.uk")); // Output: true
+//   console.log(checkEmailIdUsingRegex("invalidemail@.com")); // Output: false
+//   console.log(checkEmailIdUsingRegex("anotherinvalidemail.com")); // Output: false
+//   console.log(checkEmailIdUsingRegex("email@domain")); // Output: false
   
+
+
+  // Problem 4
+
+  function truncate(strSentence, maxLength){
+    if (strSentence.length <= maxLength) return strSentence;
+    
+    let newStr = ""
+    // cover str len > maxLen, maxLen is 0, 1,2,3
+    if (maxLength < 3) {
+        for (let i = 0;i< maxLength; i++){
+            newStr += strSentence[i]
+        }
+        return newStr
+    }
+
+    for (let i = 0;i< maxLength-3; i++){
+        newStr += strSentence[i]
+    }
+    newStr += "..."
+    return newStr
+
+  }
+
+  console.log(truncate("What I'd like to tell on this topic is:", 20))
+  console.log(truncate("What I'd ", 20))
+
+
+function truncateUsingSlice(strSentence, maxLength){
+    if (strSentence.length <= maxLength) return strSentence;
+
+    let newStr = ""
+    if (maxLength < 3) {
+        for (let i = 0;i< maxLength; i++){
+            newStr += strSentence[i]
+        }
+        return newStr
+    }
+
+    newStr = strSentence.slice(0, maxLength-3) // start from idx 0, delete the rest after maxLen-3
+    newStr += "..."
+    return newStr
+
+}
+//   console.log(truncateUsingSlice("What I'd like to tell on this topic is:", 20))
+//   console.log(truncateUsingSlice("What I'd ", 20))
+//   console.log(truncateUsingSlice("Hi everyone!", 1))
+// console.log(truncateUsingSlice("Hi everyone!", 2))
+
+
+// Problem 5
+
+arr = ["James", "Brennie"]
+arr.push("Robert")
+console.log(arr)
+
+function replaceMiddleItem(arr, replaceName){
+    const middleIdx = Math.floor(arr.length/2)
+    arr[middleIdx] = replaceName
+}
+
+replaceMiddleItem(arr, "Calvin")
+console.log(arr)
+
+
+console.log(arr.shift())
+console.log(arr)
+
+arr.unshift("Rose", "Rega")
+console.log(arr)
